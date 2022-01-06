@@ -1,0 +1,11 @@
+rootProject.name='HelloWorldKotlin'
+include ':app'
+
+setBinding(new Binding([gradle:this]))
+
+evaluate(new File(
+        settingsDir.parentFile,
+        'flutter_splash_screen_module/.android/include_flutter.groovy'
+))
+include ':flutter_splash_screen_module'
+project(':flutter_splash_screen_module').projectDir = new File('../flutter_splash_screen_module')
