@@ -50,13 +50,11 @@ Sync gradle and this will add some additional code and files to you project to s
 
 Add Flutter as a dependency to your app level build.grade file.
 
+```dart
 dependencies {
-
-
-
   implementation project(':flutter')
-
 }
+```
 
 Once the gradle is synced again then a Flutter module has successfully been added to the native project.
 Add a Flutter Activity
@@ -65,49 +63,36 @@ There are several ways to add Flutter or Dart code to a native Android applicati
 
 Add the following code to the Activity you want to launch the FlutterActivity from. This will automatically call the main.dart file in the Flutter module and launch it as an Activity.
 
+```dart
 startActivity(FlutterActivity.createDefaultIntent(this))
+```
 
 I then added a Handler with a delay to launch another Activity and calling finish() to close the splash screen we have open from Flutter. The full onCreate code of our native Activity looks as follows. This change completes the native portion of this process.
 
+```dart
 override fun onCreate(savedInstanceState: Bundle?) {
-
   super.onCreate(savedInstanceState)
-
     setContentView(R.layout.activity_main)
-
-
-
     startActivity(FlutterActivity.createDefaultIntent(this))
-
-
-
     Handler().postDelayed({
-
     val intent = Intent(this@MainActivity,
-
                         HelloWorldActivity::class.java)
-
       startActivity(intent)
-
       finish()
-
     }, 5000)
-
   }
+  ```
 
 Make sure to add the FlutterActivity to the AndroidManifest.xml as follows:
 
+```dart
 <activity
-
     android:name="io.flutter.embedding.android.FlutterActivity"
-
     android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
-
     android:hardwareAccelerated="true"
-
     android:windowSoftInputMode="adjustResize"
-
     />
+ ```
 
 Create the Flutter Splash Screen
 
@@ -115,20 +100,11 @@ This section goes through the process of creating the Flutter splash screen in d
 
 If you are familiar with Flutter you will see that the project structure of the module is very similar to a normal Flutter project. Navigate to main.dart in the lib folder. Delete the example counter app and add your code for the splash screen. My main.dart file looks as follows.
 
+```dart
 import 'dart:ui';
-
-
-
 import 'package:flutter/material.dart';
-
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-
-
-
 void main() => runApp(chooseWidget(window.defaultRouteName));
-
-
-
 Widget chooseWidget(String route) {
 
   switch (route) {
@@ -198,6 +174,7 @@ class SplashScreen extends StatelessWidget {
   }
 
 }
+```
 
 
 
