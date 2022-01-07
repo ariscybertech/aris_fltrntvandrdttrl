@@ -20,15 +20,9 @@ Add compile options to the app level build.grade within the Android block if it 
 
 ```dart
 android {
-
-
-
   compileOptions {
-
     sourceCompatibility 1.8
-
     targetCompatibility 1.8
-
   }
 }
 ```
