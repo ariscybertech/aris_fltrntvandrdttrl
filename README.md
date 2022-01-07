@@ -2,8 +2,6 @@ Project Set Up
 
 Create a parent directory for the project. This will hold both the native Android application and Flutter module as separate projects within it. Having a parent directory to the native project will make it easier to add the module to.
 
-Now clone your native Android project into the parent directory you just created. The starter Android app used in this tutorial is available at https://github.com/connorlof/HelloWorldKotlin-starter
-
 Once the project has been cloned you may open it in Android Studio. There is nothing special about this project. It can be cloned or downloaded then opened in Android Studio in the same way as any other native Android project.
 Add Flutter Module
 
