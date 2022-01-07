@@ -9,21 +9,21 @@ Add Flutter Module
 
 Open up terminal in Android Studio
 
+```dart
 cd ..
 
-  
-
 flutter create -t module name_of_module
-
+```
   
 
 Your Flutter module will now be at the same directory level and your native Android project.
 
 Add compile options to the app level build.grade within the Android block if it does not already exist.
 
+```dart
 android {
 
-​
+
 
   compileOptions {
 
@@ -32,28 +32,19 @@ android {
     targetCompatibility 1.8
 
   }
-
-  
-
 }
+```
 
 Next open the settings.gradle file and add the following code to it below include ‘:app’
 
+```dart
 include ':app'
-
-​
-
 setBinding(new Binding([gradle:this]))
-
-​
-
 evaluate(new File(
-
   settingsDir.parentFile,
-
   'name_of_module/.android/include_flutter.groovy'
-
 ))
+```
 
 Sync gradle and this will add some additional code and files to you project to support Flutter.
 
@@ -61,7 +52,7 @@ Add Flutter as a dependency to your app level build.grade file.
 
 dependencies {
 
-​
+
 
   implementation project(':flutter')
 
@@ -84,11 +75,11 @@ override fun onCreate(savedInstanceState: Bundle?) {
 
     setContentView(R.layout.activity_main)
 
-​
+
 
     startActivity(FlutterActivity.createDefaultIntent(this))
 
-​
+
 
     Handler().postDelayed({
 
@@ -126,17 +117,17 @@ If you are familiar with Flutter you will see that the project structure of the 
 
 import 'dart:ui';
 
-​
+
 
 import 'package:flutter/material.dart';
 
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
-​
+
 
 void main() => runApp(chooseWidget(window.defaultRouteName));
 
-​
+
 
 Widget chooseWidget(String route) {
 
@@ -148,7 +139,7 @@ Widget chooseWidget(String route) {
 
       return MyFlutterView();
 
-​
+
 
     default:
 
@@ -158,7 +149,7 @@ Widget chooseWidget(String route) {
 
 }
 
-​
+
 
 class MyFlutterView extends StatelessWidget {
 
@@ -178,7 +169,7 @@ class MyFlutterView extends StatelessWidget {
 
 }
 
-​
+
 
 class SplashScreen extends StatelessWidget {
 
@@ -208,7 +199,7 @@ class SplashScreen extends StatelessWidget {
 
 }
 
-​
+
 
 Run Your App
 
