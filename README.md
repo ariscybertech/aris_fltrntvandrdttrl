@@ -12,7 +12,7 @@ cd ..
 
 flutter create -t module name_of_module
 ```
-  
+   
 
 Your Flutter module will now be at the same directory level and your native Android project.
 
